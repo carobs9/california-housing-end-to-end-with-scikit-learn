@@ -31,8 +31,14 @@ def load_housing():
 
     return pd.read_csv(csv_path)
 
-# Step 2 - income_categories (not yet solved)
-# TODO: implement
+# Step 2 - income_categories
+def income_categories(df):
+    cats = pd.cut(
+        df["median_income"],
+        bins=[0, 1.5, 3, 4.5, 6, np.inf],
+        labels=[1, 2, 3, 4, 5],
+    )
+    return cats.astype(int)
 
 # Step 3 - stratified_split (not yet solved)
 # TODO: implement
